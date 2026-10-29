@@ -36,7 +36,7 @@
       <a class="quote-btn" href="#contact">Get a Quote</a>
     </div>
 
-    <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   </div>
 </header>
 
@@ -199,7 +199,7 @@
       <h2>Have a project in mind?<br><span>We're here to help.</span></h2>
       <p class="contact-text">Tell us what you need and our team will help you find the right technology solution.</p>
       <div class="contact-list">
-        <a href="tel:+971588231988"><i class="fa-solid fa-phone"></i><span><b>Phone</b>+971 58 546 0037</span></a>
+        <a href="tel:+971585460037"><i class="fa-solid fa-phone"></i><span><b>Phone</b>+971 58 546 0037</span></a>
         <div><i class="fa-solid fa-location-dot"></i><span><b>Office</b>16F-B-65 Empire Heights, Business Bay, Dubai, UAE</span></div>
         <a href="https://wa.me/971585460037" target="_blank"><i class="fa-brands fa-whatsapp"></i><span><b>WhatsApp</b>Chat with us</span></a>
       </div>
@@ -231,40 +231,88 @@
 </section>
 </main>
 
-<footer class="footer">
-    <div class="footer-container">
+<footer class="footer" id="footer">
+  <div class="container footer-grid">
 
-        <!-- Quick Links -->
-        <div class="footer-column">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/blockchain">Blockchain</a></li>
-                <li><a href="/industries">Industries</a></li>
-                <li><a href="/why-us">Why Us</a></li>
-            </ul>
-        </div>
-
-        <!-- Our Services -->
-        <div class="footer-column">
-            <h3>Our Services</h3>
-            <ul>
-                <li><a href="/managed-it">Managed IT Services</a></li>
-                <li><a href="/cloud-solutions">Cloud Solutions</a></li>
-                <li><a href="/cybersecurity">Cybersecurity</a></li>
-                <li><a href="/web-development">Web Development</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Us -->
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <p>Email: info@extremeitlab.com</p>
-            <p>Website: extremeitlab.com</p>
-            <p>Phone: +971 58 546 0037</p>
-        </div>
-
+    <!-- Company information -->
+    <div class="footer-brand">
+      <a href="#home" aria-label="Extreme IT Solution home">
+        <img src="logo.png" alt="Extreme IT Solution logo">
+      </a>
+      <p>Secure, reliable and scalable IT solutions for businesses across the UAE.</p>
+      <div class="socials">
+        <a href="https://wa.me/971585460037" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="mailto:info@extremeitlab.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
     </div>
+
+    <!-- Quick links -->
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#blockchain">Blockchain</a>
+      <a href="#industries">Industries</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-column">
+      <h4>Our Services</h4>
+      <a href="#services">Managed IT Services</a>
+      <a href="#services">Cloud Solutions</a>
+      <a href="#services">Cybersecurity</a>
+      <a href="#services">Server &amp; Data Solutions</a>
+      <a href="#services">Software Development</a>
+      <a href="#blockchain">Blockchain Solutions</a>
+      <a href="#blockchain">Smart Contract Development</a>
+      <a href="#services">IT Consultancy</a>
+    </div>
+
+    <!-- Contact details -->
+    <div class="footer-column">
+      <h4>Contact Us</h4>
+      <a href="tel:+971585460037">+971 58 546 0037</a>
+      <a href="mailto:info@extremeitlab.com">info@extremeitlab.com</a>
+      <a href="https://extremeitlab.com" target="_blank" rel="noopener noreferrer">extremeitlab.com</a>
+      <p>16F-B-65 Empire Heights, Business Bay, Dubai, UAE</p>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    <div class="container">
+      <span>&copy; <span id="currentYear">2026</span> Extreme IT Solution. All rights reserved.</span>
+      <span>IT Solutions | Cloud | Cybersecurity | Blockchain</span>
+    </div>
+  </div>
 </footer>
+
+<script>
+  // Keep the copyright year current.
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+  // Mobile navigation toggle.
+  const menuBtn = document.getElementById("menuBtn");
+  const nav = document.getElementById("nav");
+
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", nav.classList.contains("open") ? "true" : "false");
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+  }
+</script>
+
+</body>
+</html>
